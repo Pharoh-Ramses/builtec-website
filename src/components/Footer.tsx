@@ -45,9 +45,13 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Company Info */}
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-gray-100">Builtec</h2>
+              <img
+                  src='/images/builtec-logo.png'
+                  alt="Builtec Logo"
+                  className="w-auto h-16 object-contain"
+              />
               <p className="text-gray-400 text-sm">
-                Building excellence through innovation and craftsmanship. Your vision, our expertise.
+              Building excellence through innovation and craftsmanship. Your vision, our expertise.
               </p>
               {/* Newsletter Signup */}
               <div className="flex gap-2">

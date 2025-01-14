@@ -29,8 +29,14 @@ const Header = () => {
         <header className="bg-white border-b border-gray-200">
             <div className="max-w-7xl mx-auto px-4 flex items-center justify-between py-4">
                 {/* Logo */}
-                <a href="/" className="text-2xl font-bold text-slate-900 hover:text-slate-700 transition-colors">
-                    Builtec
+                <a href="/" className="flex items-center gap-4 text-2xl font-bold text-slate-900 hover:text-slate-700 transition-colors">
+
+                    <img
+                        src='/images/builtec-icon.png'
+                        alt="Builtec Logo"
+                        className="w-auto h-16 object-contain"
+                    />
+                    BUILTEC USA
                 </a>
 
                 {/* Desktop Navigation */}
