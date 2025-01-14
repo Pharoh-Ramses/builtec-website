@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Commercial Steel Construction",
+    "description": "High-quality steel solutions for commercial projects.",
+    "link": "/commercial",
+    "image": "/assets/images/commercial.jpg"
+  },
+  {
+    "title": "Barndominiums",
+    "description": "Durable, customizable steel barndominiums.",
+    "link": "/barndominiums",
+    "image": "/assets/images/barndominiums.jpg"
+  },
+  {
+    "title": "Residential Steel Buildings",
+    "description": "Sheds, warehouses, and more for residential needs.",
+    "link": "/residential",
+    "image": "/assets/images/residential.jpg"
+  }
+]
+

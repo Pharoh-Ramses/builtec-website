@@ -1,0 +1,86 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "Mountaire Farms Feed Mill and Grain Storage",
+      "category": "commercial",
+      "location": "North Carolina",
+      "description": "Steel structures around a feed mill and grain storage facility.",
+      "imagePath": "/images/mountaire-farms/",
+      "images": [
+        "mountaire-farms-1.jpg",
+        "mountaire-farms-2.jpg"
+      ],
+      "services": [
+        "Materials Supply",
+        "Steel Fabrication",
+        "Steel Erection"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Pilgrim's Pountry Feed Mill",
+      "category": "industrial",
+      "location": "Nashville, AR",
+      "description": "Custom steel structures demonstrating our expertise in industrial-scale projects.",
+      "imagePath": "/images/pilgrims-mill/",
+      "images": [
+        "pilgrims-mill-1.jpg",
+        "pilgrims-mill-2.jpg",
+        "pilgrims-mill-3.jpg",
+        "pilgrims-mill-4.jpg",
+        "pilgrims-mill-5.jpg",
+        "pilgrims-mill-6.jpg"
+      ],
+      "services": [
+        "Custom Steel Structures",
+        "Fabrication",
+        "Installation"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "W.H. Gaston Middle School",
+      "category": "commercial",
+      "location": "Dallas, TX",
+      "description": "Custom steel walkway project as part of school modernization initiative.",
+      "imagePath": "/images/gaston/",
+      "images": [
+        "gaston-1.jpg",
+        "gaston-2.jpg",
+        "gaston-3.jpg",
+        "gaston-4.jpg",
+        "gaston-5.jpg",
+        "gaston-6.jpg",
+        "gaston-7.jpg"
+      ],
+      "services": [
+        "Steel Fabrication",
+        "Steel Erection",
+        "Custom Walkway Design"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "King Plaza Retail Building",
+      "category": "commercial",
+      "location": "Frisco, TX",
+      "description": "Comprehensive steel fabrication and erection for retail development.",
+      "imagePath": "/images/king-plaza/",
+      "images": [
+        "king-plaza-1.jpg",
+        "king-plaza-2.jpg",
+        "king-plaza-3.jpg",
+        "king-plaza-4.jpg",
+        "king-plaza-5.jpg",
+        "king-plaza-6.jpg",
+        "king-plaza-7.jpg"
+      ],
+      "services": [
+        "Steel Erection",
+        "Retail Construction",
+        "Project Management"
+      ]
+    }
+  ]
+}
