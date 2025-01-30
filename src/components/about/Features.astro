@@ -1,0 +1,33 @@
+---
+
+const features = [
+    {
+        title: 'Expertise & Experience',
+        description: 'With over 25 years of experience in steel fabrication and erection, our team brings unmatched expertise to every project.'
+    },
+    {
+        title: 'Quality & Precision',
+        description: 'Our commitment to precision engineering and quality craftsmanship ensures superior results in every structure we build.'
+    },
+    {
+        title: 'Comprehensive Services',
+        description: 'From planning and design to installation, we offer end-to-end steel solutions for all your construction needs.'
+    },
+    {
+        title: 'Safety First',
+        description: 'We maintain the highest safety standards in all our operations, protecting our team and your investment.'
+    }
+];
+---
+
+<section class="mb-20">
+    <h2 class="text-3xl font-bold text-slate-900 mb-8">Why Choose BUILTEC USA</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+        {features.map((feature) => (
+                <div class="space-y-2">
+                    <h3 class="text-xl font-semibold text-slate-900">{feature.title}</h3>
+                    <p class="text-gray-700">{feature.description}</p>
+                </div>
+        ))}
+    </div>
+</section>
