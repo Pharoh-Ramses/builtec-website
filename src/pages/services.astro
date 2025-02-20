@@ -1,0 +1,100 @@
+---
+// src/pages/services.astro
+import "../styles/globals.css";
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+import Header from '../components/Header.tsx';
+import Footer from '../components/Footer.tsx';
+
+const services = [
+  {
+    title: "Construction Management",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    features: ["Project Planning", "Cost Control", "Quality Assurance", "Timeline Management"],
+    image: "/api/placeholder/600/400"
+  },
+  {
+    title: "Architectural Design",
+    description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    features: ["Custom Designs", "3D Modeling", "Sustainable Solutions", "Regulatory Compliance"],
+    image: "/api/placeholder/600/400"
+  },
+  {
+    title: "Renovation Services",
+    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    features: ["Interior Remodeling", "Exterior Updates", "Space Optimization", "Modern Upgrades"],
+    image: "/api/placeholder/600/400"
+  }
+];
+---
+
+<DefaultLayout>
+  <Header client:load slot="header" />
+  
+  <div class="bg-background">
+    <!-- Hero Section -->
+    <div class="relative py-24 relative bg-slate-900 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl">
+            Popular Services
+          </h1>
+          <p class="mt-3 max-w-2xl mx-auto text-xl text-primary-foreground sm:mt-4 pt-8">
+            These are some of our most popular services. We're always looking for new ways to improve our services and your experience.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+        {services.map(service => (
+          <div class="bg-card rounded-lg shadow-lg overflow-hidden">
+            <img
+              src={service.image}
+              alt={service.title}
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-card-foreground mb-4">
+                {service.title}
+              </h3>
+              <p class="text-muted-foreground mb-6">
+                {service.description}
+              </p>
+              <ul class="space-y-3">
+                {service.features.map(feature => (
+                  <li class="flex items-center text-card-foreground">
+                    <svg class="h-5 w-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-secondary py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold text-secondary-foreground mb-4">
+            Ready to Start Your Project?
+          </h2>
+          <p class="text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Contact us today for a free consultation and let us help bring your vision to life.
+          </p>
+          <button class="bg-primary text-primary-foreground px-8 py-3 rounded-md font-medium hover:bg-primary/90 transition-colors">
+            Contact Us
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</DefaultLayout>

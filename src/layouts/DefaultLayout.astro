@@ -1,9 +1,12 @@
+---
+const site = import.meta.env.SITE;
+---
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Builtec</title>
-    <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body class="font-sans bg-gray-50">
     <slot name="header" />
@@ -13,4 +16,3 @@
     <slot name="footer" />
   </body>
 </html>
-
