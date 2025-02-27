@@ -1,0 +1,23 @@
+---
+import '../styles/globals.css';
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+
+const locale = 'es';
+---
+<DefaultLayout locale={locale}>
+    <div class="min-h-[70vh] flex items-center justify-center px-4">
+        <div class="text-center">
+            <h1 class="text-6xl font-bold text-slate-900 mb-4">404</h1>
+            <p class="text-2xl text-slate-700 mb-8">Página No Encontrada</p>
+            <p class="text-slate-600 mb-8 max-w-md mx-auto">
+                Lo sentimos, no pudimos encontrar la página que estás buscando o está en construcción. Por favor, verifica la URL o regresa a la página de inicio.
+            </p>
+            <a
+                    href="/es/"
+                    class="inline-block bg-slate-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-slate-800 transition-colors"
+            >
+                Volver a la Página de Inicio
+            </a>
+        </div>
+    </div>
+</DefaultLayout>

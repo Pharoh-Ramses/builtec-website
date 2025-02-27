@@ -1,0 +1,320 @@
+---
+// src/pages/barndominiums.astro
+import "../styles/globals.css";
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+
+const features = [
+  {
+    title: "Custom Design",
+    description: "Tailored barndominium plans that perfectly match your lifestyle, needs, and aesthetic preferences.",
+    icon: "M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+  },
+  {
+    title: "Durability",
+    description: "Steel frame construction offering exceptional strength, weather resistance, and longevity.",
+    icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+  },
+  {
+    title: "Cost Efficiency",
+    description: "More affordable than traditional homes with faster build times and lower maintenance costs.",
+    icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+  },
+  {
+    title: "Versatile Spaces",
+    description: "Open-concept layouts that combine living spaces with workshops, garages, or agricultural areas.",
+    icon: "M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+  }
+];
+
+const projects = [
+  {
+    title: "Modern Ranch Barndominium",
+    description: "3,200 sq ft with 4 bedrooms, workshop space, and an open-concept living area.",
+    image: "/api/placeholder/600/400",
+    location: "Austin, TX"
+  },
+  {
+    title: "Rustic Family Barndominium",
+    description: "2,800 sq ft with 3 bedrooms, vaulted ceilings, and an attached 2-car garage.",
+    image: "/api/placeholder/600/400",
+    location: "Dallas, TX"
+  },
+  {
+    title: "Luxury Farmhouse Style",
+    description: "4,000 sq ft with 5 bedrooms, premium finishes, and a wraparound porch.",
+    image: "/api/placeholder/600/400",
+    location: "Houston, TX"
+  }
+];
+
+const benefits = [
+  "Typically 30% less expensive than traditional construction",
+  "Faster build time - often completed in 4-6 months",
+  "Superior energy efficiency and lower utility costs",
+  "Customizable floor plans for maximum flexibility",
+  "Low maintenance exterior with long-lasting materials",
+  "Excellent weather resistance and durability"
+];
+---
+
+<DefaultLayout>
+  <div class="bg-background">
+    <!-- Hero Section -->
+    <div class="relative bg-slate-900 text-white py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+          <div>
+            <h1 class="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl">
+              Custom Barndominium Builders
+            </h1>
+            <p class="mt-6 max-w-2xl text-xl text-primary-foreground">
+              Combining the durability of steel structures with the comfort of modern homes. We design and build custom barndominiums that perfectly balance functionality, aesthetics, and value.
+            </p>
+            <div class="mt-10 flex gap-4">
+              <button class="bg-white text-primary px-8 py-3 rounded-md font-medium hover:bg-primary/90 hover:text-white transition-colors">
+                Get Started
+              </button>
+              <button class="border border-white text-white px-8 py-3 rounded-md font-medium hover:bg-primary/10 transition-colors">
+                View Gallery
+              </button>
+            </div>
+          </div>
+          <div class="mt-12 lg:mt-0">
+            <div class="relative rounded-lg overflow-hidden shadow-xl">
+              <img
+                src="src/assets/images/barndominium-render.png"
+                alt="Beautiful custom barndominium"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-card-foreground sm:text-4xl">
+            Why Choose a Barndominium?
+          </h2>
+          <p class="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+            The perfect blend of practicality, affordability, and modern design.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {features.map(feature => (
+            <div class="bg-card rounded-lg p-6 shadow-md">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-primary-foreground mb-4">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={feature.icon}></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-card-foreground mb-2">{feature.title}</h3>
+              <p class="text-muted-foreground">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Process Section -->
+    <div class="bg-secondary py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-secondary-foreground sm:text-4xl">
+            Our Building Process
+          </h2>
+          <p class="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+            From concept to completion, we manage every detail of your barndominium project.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div class="text-center">
+            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mx-auto mb-4">
+              <span class="text-2xl font-bold">1</span>
+            </div>
+            <h3 class="text-xl font-bold text-secondary-foreground mb-2">Design Consultation</h3>
+            <p class="text-muted-foreground">Collaborate with our design team to create the perfect floor plan and exterior that meets your unique needs.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mx-auto mb-4">
+              <span class="text-2xl font-bold">2</span>
+            </div>
+            <h3 class="text-xl font-bold text-secondary-foreground mb-2">Engineering & Permitting</h3>
+            <p class="text-muted-foreground">We handle all technical specifications, structural engineering, and permitting processes with local authorities.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground mx-auto mb-4">
+              <span class="text-2xl font-bold">3</span>
+            </div>
+            <h3 class="text-xl font-bold text-secondary-foreground mb-2">Construction & Finishing</h3>
+            <p class="text-muted-foreground">Our experienced team constructs and finishes your barndominium with meticulous attention to detail and quality.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Showcase -->
+    <div class="py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-card-foreground sm:text-4xl">
+            Featured Projects
+          </h2>
+          <p class="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+            Take a look at some of our recently completed barndominium builds.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
+          {projects.map(project => (
+            <div class="bg-card rounded-lg shadow-lg overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                class="w-full h-64 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-card-foreground mb-2">
+                  {project.title}
+                </h3>
+                <p class="text-primary text-sm mb-3">
+                  {project.location}
+                </p>
+                <p class="text-muted-foreground mb-4">
+                  {project.description}
+                </p>
+                <button class="text-primary font-medium hover:underline flex items-center">
+                  View Details
+                  <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div class="bg-slate-50 py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+          <div>
+            <h2 class="text-3xl font-bold text-card-foreground sm:text-4xl mb-6">
+              The Barndominium Advantage
+            </h2>
+            <p class="text-lg text-muted-foreground mb-8">
+              Barndominiums offer a range of advantages over traditional construction methods, making them an increasingly popular choice for modern homeowners.
+            </p>
+            
+            <ul class="space-y-4">
+              {benefits.map(benefit => (
+                <li class="flex items-start">
+                  <svg class="h-6 w-6 text-primary mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-card-foreground">{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div class="mt-12 lg:mt-0">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="rounded-lg overflow-hidden shadow-md">
+                <img src="/src/assets/images/barndominium/fannin-11.jpeg" alt="Barndominium interior" class="w-full h-full object-cover" />
+              </div>
+              <div class="rounded-lg overflow-hidden shadow-md">
+                <img src="/src/assets/images/barndominium/fannin-10.jpeg" alt="Barndominium exterior" class="w-full h-full object-cover" />
+              </div>
+              <div class="rounded-lg overflow-hidden shadow-md">
+                <img src="/src/assets/images/barndominium/fannin-8.jpeg" alt="Barndominium kitchen" class="w-full h-full object-cover" />
+              </div>
+              <div class="rounded-lg overflow-hidden shadow-md">
+                <img src="/src/assets/images/barndominium/fannin-6.jpeg" alt="Barndominium living room" class="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial Section -->
+    <div class="py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-card-foreground sm:text-4xl">
+            What Our Clients Say
+          </h2>
+          <p class="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+            Hear from homeowners who chose us for their barndominium projects.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div class="bg-card rounded-lg p-8 shadow-md">
+            <div class="flex items-center mb-6">
+              <div class="mr-4">
+                <div class="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center">
+                  <span class="text-primary font-bold">JM</span>
+                </div>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-card-foreground">James & Monica Thompson</h4>
+                <p class="text-primary">Austin, TX</p>
+              </div>
+            </div>
+            <p class="text-muted-foreground italic">
+              "Working with your team was an absolute pleasure from start to finish. Our barndominium exceeded our expectations in both quality and timeline. The open-concept living space is perfect for our family gatherings, and the workshop area gives me all the space I need for my hobbies."
+            </p>
+          </div>
+          
+          <div class="bg-card rounded-lg p-8 shadow-md">
+            <div class="flex items-center mb-6">
+              <div class="mr-4">
+                <div class="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center">
+                  <span class="text-primary font-bold">SR</span>
+                </div>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-card-foreground">Sarah Rodriguez</h4>
+                <p class="text-primary">Houston, TX</p>
+              </div>
+            </div>
+            <p class="text-muted-foreground italic">
+              "After researching several builders, I chose your company for my barndominium project, and it was the best decision I made. The design process was collaborative, the construction was efficient, and the final result is a beautiful, energy-efficient home that costs significantly less to maintain than my previous house."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-secondary py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold text-secondary-foreground mb-4">
+            Ready to Start Your Barndominium Project?
+          </h2>
+          <p class="text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Contact us today for a free consultation and estimate. We'll help bring your barndominium vision to life.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button class="bg-primary text-primary-foreground px-8 py-3 rounded-md font-medium hover:bg-primary/90 transition-colors">
+              Request Consultation
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DefaultLayout>

@@ -1,0 +1,247 @@
+---
+// src/components/Header.astro
+// Import necessary components or utilities
+import { cn } from "@/lib/utils";
+
+// Get the current locale and URL from Astro
+const { locale = 'en' } = Astro.props;
+
+// Create translations object
+const translations = {
+  en: {
+    "nav.home": "Home",
+    "nav.about": "About",
+    "nav.services": "Services",
+    "nav.allServices": "All Services",
+    "nav.commercial": "Commercial",
+    "nav.residential": "Residential",
+    "nav.barndominiums": "Barndominiums",
+    "nav.contact": "Contact",
+    "logo.alt": "Builtec Logo"
+  },
+  es: {
+    "nav.home": "Inicio",
+    "nav.about": "Nosotros",
+    "nav.services": "Servicios",
+    "nav.allServices": "Todos los servicios",
+    "nav.commercial": "Comercial",
+    "nav.residential": "Residencial",
+    "nav.barndominiums": "Barndominios",
+    "nav.contact": "Contacto",
+    "logo.alt": "Logo de Builtec"
+  }
+};
+
+// Translation helper function
+const t = (key) => {
+  return translations[locale]?.[key] || key;
+};
+
+// Navigation links
+const links = [
+  { nameKey: "nav.home", href: "/" },
+  { nameKey: "nav.about", href: "/about" },
+  { 
+    nameKey: "nav.services", 
+    subLinks: [
+      { nameKey: "nav.allServices", href: "/services" },
+      { nameKey: "nav.commercial", href: "/commercial" },
+      { nameKey: "nav.residential", href: "/residential" },
+      { nameKey: "nav.barndominiums", href: "/barndominiums" },
+    ] 
+  },
+  { nameKey: "nav.contact", href: "/contact" },
+];
+
+// Function to get localized URLs
+const getLocalizedUrl = (path) => {
+  if (locale === 'en') {
+    return path;
+  } else {
+    return `/${locale}${path}`;
+  }
+};
+
+// Determine alternate URL for language switcher
+const currentPath = Astro.url.pathname;
+const isSpanish = currentPath.startsWith('/es/');
+
+// Fix for language switching logic
+let alternateUrl;
+if (isSpanish) {
+  // If we're on a Spanish page, get the English equivalent
+  // Remove the /es/ prefix to get to the English version
+  alternateUrl = currentPath.replace(/^\/es/, '') || '/';
+} else {
+  // If we're on an English page, get the Spanish equivalent
+  // Add the /es prefix for the Spanish version
+  alternateUrl = `/es${currentPath === '/' ? '' : currentPath}`;
+}
+---
+
+<header class="bg-white border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between py-4">
+    <!-- Logo -->
+    <a href={getLocalizedUrl('/')} class="flex items-center gap-4 text-2xl font-bold text-slate-900 hover:text-slate-700 transition-colors">
+      <img
+        src='/images/builtec-icon.png'
+        alt={t('logo.alt')}
+        class="w-auto h-16 object-contain"
+      />
+      BUILTEC USA
+    </a>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center">
+      <nav class="flex">
+        <ul class="flex items-center space-x-1">
+          {links.map((link) => (
+            <li class="relative group">
+              {link.subLinks ? (
+                <>
+                  <button class="flex items-center px-3 py-2 text-sm font-medium text-slate-900 hover:text-slate-700 focus:outline-none">
+                    {t(link.nameKey)}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                  <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+                    <div class="py-1">
+                      {link.subLinks.map((subLink) => (
+                        <a
+                          href={getLocalizedUrl(subLink.href)}
+                          class="block px-4 py-2 text-sm text-slate-900 hover:bg-slate-900 hover:text-white"
+                        >
+                          {t(subLink.nameKey)}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <a
+                  href={getLocalizedUrl(link.href)}
+                  class="block px-3 py-2 rounded-md text-sm font-medium text-slate-900 hover:text-slate-700 focus:bg-slate-50 focus:text-slate-900"
+                >
+                  {t(link.nameKey)}
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Language Switcher -->
+      <div class="flex items-center ml-4">
+        <a 
+          href={alternateUrl}
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded border border-gray-200 hover:bg-gray-50 transition-colors"
+        >
+          {isSpanish ? (
+            <>
+              <span class="text-sm font-medium">EN</span>
+              <svg width="16" height="12" viewBox="0 0 640 480" class="flex-shrink-0">
+                <rect width="640" height="480" fill="#012169"/>
+                <path d="M75,0l244,181L562,0h78v62L400,241l240,178v61h-80L320,301L81,480H0v-60L240,241L0,62V0H75z" fill="#FFF"/>
+                <path d="M424,281l216,159v40L369,281h55z M240,301l6,18L54,480H0L240,301z M640,0v3L391,191l2-44L590,0H640z M0,0l239,176h-60L0,42V0z" fill="#C8102E"/>
+                <path d="M241,0v480h160V0H241z M0,160v160h640V160H0z" fill="#FFF"/>
+                <path d="M0,193v96h640v-96H0z M273,0v480h96V0H273z" fill="#C8102E"/>
+              </svg>
+            </>
+          ) : (
+            <>
+              <span class="text-sm font-medium">ES</span>
+              <svg width="16" height="12" viewBox="0 0 750 500" class="flex-shrink-0">
+                <rect width="750" height="500" fill="#c60b1e"/>
+                <rect width="750" height="250" y="125" fill="#ffc400"/>
+              </svg>
+            </>
+          )}
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation (Simplified) -->
+    <div class="md:hidden">
+      <details class="relative">
+        <summary class="list-none">
+          <button class="p-2" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </summary>
+        <div class="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20">
+          <div class="py-1" role="menu">
+            {links.map((link) => (
+              <>
+                {link.subLinks ? (
+                  <div class="px-3 py-2">
+                    <div class="font-medium text-slate-900">{t(link.nameKey)}</div>
+                    <div class="pl-4 mt-1 flex flex-col gap-1">
+                      {link.subLinks.map((subLink) => (
+                        <a
+                          href={getLocalizedUrl(subLink.href)}
+                          class="text-sm text-slate-700 hover:text-slate-900 py-1"
+                        >
+                          {t(subLink.nameKey)}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <a
+                    href={getLocalizedUrl(link.href)}
+                    class="block px-4 py-2 text-sm text-slate-900 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    {t(link.nameKey)}
+                  </a>
+                )}
+              </>
+            ))}
+
+            <!-- Mobile Language Switcher -->
+            <div class="border-t border-gray-100 mt-1 pt-1">
+              <a 
+                href={alternateUrl}
+                class="flex items-center gap-1.5 px-4 py-2 text-sm text-slate-900 hover:bg-gray-100"
+              >
+                {isSpanish ? "Switch to English" : "Cambiar a Español"}
+                {isSpanish ? (
+                  <svg width="16" height="12" viewBox="0 0 640 480" class="flex-shrink-0 ml-1">
+                    <rect width="640" height="480" fill="#012169"/>
+                    <path d="M75,0l244,181L562,0h78v62L400,241l240,178v61h-80L320,301L81,480H0v-60L240,241L0,62V0H75z" fill="#FFF"/>
+                    <path d="M424,281l216,159v40L369,281h55z M240,301l6,18L54,480H0L240,301z M640,0v3L391,191l2-44L590,0H640z M0,0l239,176h-60L0,42V0z" fill="#C8102E"/>
+                    <path d="M241,0v480h160V0H241z M0,160v160h640V160H0z" fill="#FFF"/>
+                    <path d="M0,193v96h640v-96H0z M273,0v480h96V0H273z" fill="#C8102E"/>
+                  </svg>
+                ) : (
+                  <svg width="16" height="12" viewBox="0 0 750 500" class="flex-shrink-0 ml-1">
+                    <rect width="750" height="500" fill="#c60b1e"/>
+                    <rect width="750" height="250" y="125" fill="#ffc400"/>
+                  </svg>
+                )}
+              </a>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Simple client-side script for dropdown behavior
+  document.addEventListener('DOMContentLoaded', () => {
+    // Close all details when clicking outside
+    document.addEventListener('click', (e) => {
+      const details = document.querySelectorAll('details');
+      details.forEach(detail => {
+        if (!detail.contains(e.target)) {
+          detail.removeAttribute('open');
+        }
+      });
+    });
+  });
+</script>

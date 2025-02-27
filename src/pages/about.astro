@@ -2,8 +2,6 @@
 // src/pages/about.astro
 import "../styles/globals.css";
 import DefaultLayout from '../layouts/DefaultLayout.astro';
-import Header from '../components/Header.tsx';
-import Footer from '../components/Footer.tsx';
 import Hero from '../components/about/Hero.astro';
 import Story from '../components/about/Story.astro';
 import Services from '../components/about/Services.astro';
@@ -13,8 +11,6 @@ import ContactCTA from '../components/about/ContactCTA.astro';
 ---
 
 <DefaultLayout>
-    <Header client:load slot="header" />
-
     <div class="min-h-screen bg-gray-50">
         <Hero />
         <div class="max-w-7xl mx-auto px-4 py-12">
@@ -25,6 +21,4 @@ import ContactCTA from '../components/about/ContactCTA.astro';
             <ContactCTA />
         </div>
     </div>
-
-    <Footer slot="footer" />
 </DefaultLayout>

@@ -2,8 +2,6 @@
 import '../styles/globals.css';
 import { Image } from 'astro:assets'
 import DefaultLayout from '../layouts/DefaultLayout.astro';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/About-Us';
 import ProjectGallery from '../components/Project-Gallery';
@@ -105,9 +103,6 @@ const licenses = [
 ---
 
 <DefaultLayout>
-  <slot name="header">
-    <Header client:load />
-  </slot>
 
   <div class="relative">
     <div class="absolute inset-0 w-full h-full">
@@ -187,7 +182,4 @@ const licenses = [
     </div>
   </section>
 
-  <slot name="footer">
-    <Footer />
-  </slot>
 </DefaultLayout>

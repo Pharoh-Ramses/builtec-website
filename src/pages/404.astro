@@ -1,12 +1,9 @@
 ---
 import '../styles/globals.css';
 import DefaultLayout from '../layouts/DefaultLayout.astro';
-import Header from '../components/Header.tsx';
-import Footer from '../components/Footer.tsx';
 ---
 
 <DefaultLayout>
-    <Header slot="header" />
 
     <div class="min-h-[70vh] flex items-center justify-center px-4">
         <div class="text-center">
@@ -24,5 +21,4 @@ import Footer from '../components/Footer.tsx';
         </div>
     </div>
 
-    <Footer slot="footer" />
 </DefaultLayout>

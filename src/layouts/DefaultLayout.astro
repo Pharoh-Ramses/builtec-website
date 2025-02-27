@@ -1,18 +1,21 @@
 ---
-const site = import.meta.env.SITE;
----
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer';
 
-<html lang="en">
+const site = import.meta.env.SITE;
+const { locale = 'en' } = Astro.props;
+---
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Builtec</title>
   </head>
   <body class="font-sans bg-gray-50">
-    <slot name="header" />
+<Header locale={Astro.currentLocale || 'en'} />
     <main class="w-full min-h-screen">
       <slot />
     </main>
-    <slot name="footer" />
+    <Footer locale={locale} client:load />
   </body>
 </html>
