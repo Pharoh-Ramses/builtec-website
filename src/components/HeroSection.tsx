@@ -42,13 +42,15 @@ const HeroSection = () => {
                   <Building2 className="w-4 h-4 ml-2" />
                 </Button>
               </a>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-slate-900 text-slate-900 hover:bg-slate-50 bg-white"
-              >
-                Get a Quote
-              </Button>
+              <a href="/contact">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-slate-900 text-slate-900 hover:bg-slate-50 bg-white"
+                >
+                  Get a Quote
+                </Button>
+              </a>
             </div>
 
             {/* Key Features */}
