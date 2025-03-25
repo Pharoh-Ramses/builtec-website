@@ -32,7 +32,7 @@ const Footer = () => {
   ]
 
   const socialLinks = [
-    { icon: <FacebookIcon className="w-5 h-5" />, href: "https://facebook.com" },
+    { icon: <FacebookIcon className="w-5 h-5" />, href: "https://www.facebook.com/profile.php?id=100069812730251" },
     { icon: <InstagramIcon className="w-5 h-5" />, href: "https://instagram.com" },
     { icon: <TwitterIcon className="w-5 h-5" />, href: "https://twitter.com" },
     { icon: <LinkedinIcon className="w-5 h-5" />, href: "https://linkedin.com" },
@@ -105,10 +105,10 @@ const Footer = () => {
             <div className="space-y-4">
               <h3 className="font-semibold text-gray-300">Contact Us</h3>
               <div className="space-y-2 text-sm text-gray-400">
-                <p>123 Construction Way</p>
-                <p>Building City, BC 12345</p>
-                <p>Phone: (555) 123-4567</p>
-                <p>Email: info@builtec.com</p>
+                <p>8522 State Hwy 121</p>
+                <p>Trenton, TX 75490</p>
+                <p>Phone: 972-632-7507</p>
+                <p>Email: info@builtecusa.com</p>
               </div>
             </div>
           </div>
